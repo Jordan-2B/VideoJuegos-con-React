@@ -1,4 +1,5 @@
 import {Reloj,Pagina} from './useeffect'
+import {AnimatedCard} from './animasion'
 
 
 
@@ -10,6 +11,7 @@ export function App (){
 
     <Reloj/> 
     <Pagina/>
+    <AnimatedCard/>
     </aside>
 </article>
    )
