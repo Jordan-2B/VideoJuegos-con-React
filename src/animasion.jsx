@@ -47,8 +47,8 @@ export function AnimatedCard() {
           }}
         >
           <img
-            src="../public/Jin-Mori.png"
-            alt="Mori Jin"
+            src="../public/Reze.png"
+            alt="Reze"
             style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
           />
 
@@ -71,9 +71,9 @@ export function AnimatedCard() {
             padding: "1.5rem 1.2rem 1rem",
             background: "linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 100%)",
           }}>
-            <p style={{ color: "#fff", fontWeight: 700, fontSize: 20, margin: 0 }}>Mori Jin</p>
-            <p style={{ color: "#c9a227", fontSize: 12, letterSpacing: "0.12em", margin: 0 }}>
-              THE GOD OF HIGH SCHOOL
+            <p style={{ color: "#fff", fontWeight: 700, fontSize: 20, margin: 0 }}>Reze</p>
+            <p style={{ color: "rgb(210, 39, 39)", fontSize: 12, letterSpacing: "0.12em", margin: 0 }}>
+              CHAINSAW MAN
             </p>
           </div>
         </div>
