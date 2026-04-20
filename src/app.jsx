@@ -1,4 +1,4 @@
-import {Reloj,EjercicioMemo,EjercicioCallback} from './useeffect'
+import {Reloj} from './useeffect'
 
 
 
@@ -8,9 +8,7 @@ export function App (){
 <article  >
     <aside>
 
-    <Reloj/> <br/> 
-    <EjercicioMemo/>
-    <EjercicioCallback/>
+    <Reloj/> 
     </aside>
 </article>
    )
