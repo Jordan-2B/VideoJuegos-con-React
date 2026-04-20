@@ -1,4 +1,4 @@
-import {Reloj} from './useeffect'
+import {Reloj,Pagina} from './useeffect'
 
 
 
@@ -9,6 +9,7 @@ export function App (){
     <aside>
 
     <Reloj/> 
+    <Pagina/>
     </aside>
 </article>
    )
