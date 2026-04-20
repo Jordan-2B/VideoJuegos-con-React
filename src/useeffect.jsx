@@ -1,4 +1,4 @@
-import { useEffect,useRef,useState,useCallback,useMemo} from "react";
+import { useEffect,useRef,useState,useCallback,useMemo,useContext} from "react";
 
 export function Reloj() {
   const [hora, setHora] = useState(new Date());
@@ -37,6 +37,14 @@ alert(mensaje = "Vergirl");
 
 }
 
+export function context () {
+  const valor = useContext(context);
+  return(
+    <div>
+      <h1>{valor}</h1>
+    </div>
+  )
+}
 
 
 
