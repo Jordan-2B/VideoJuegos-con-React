@@ -13,31 +13,3 @@ export function Reloj() {
 
   return <h1>{hora.toLocaleTimeString()}</h1>;
 }
-
-
-
-export  function Pagina() {
-const mensaje = "Dante";
-const [contador, setContador] = useState(0);
-const actulizar =() => {
-setContador(contador + 1);
-if(contador === 5){
-  alert(mensaje);
-}else if(contador === 10){
-alert(mensaje = "Vergirl");
-}
-}
-  return (
-
-    <div>
-      <h1>{contador}</h1>
-      <button onClick={actulizar}>click</button>
-    </div>
-  )
-
-}
-
-
-
-
-
