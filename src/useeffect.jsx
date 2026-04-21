@@ -18,7 +18,7 @@ export function Reloj() {
 export function Myboton (){
 
 const [estado, setEstado] = useState(false);
-const [contador, setContador] = useState(false );
+const [contador, setContador] = useState();
 
 let mensaje1 ="Chainsaw Man";
 let mensaje2 = "the god of high school";
