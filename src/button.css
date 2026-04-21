@@ -1,0 +1,26 @@
+.contenedor-botones {
+  gap: 12px; /* espacio entre botones */
+}
+
+.btn {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: #4b2e83;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.btn1 {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: #a30909;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn:hover {
+  background-color: #45a049;
+}

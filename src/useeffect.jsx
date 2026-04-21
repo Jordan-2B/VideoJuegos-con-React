@@ -1,4 +1,5 @@
 import { useEffect,useRef,useState,useCallback,useMemo,useContext} from "react";
+import './button.css'
 
 export function Reloj() {
   const [hora, setHora] = useState(new Date());
@@ -14,38 +15,37 @@ export function Reloj() {
   return <h1>{hora.toLocaleTimeString()}</h1>;
 }
 
+export function Myboton (){
+
+const [estado, setEstado] = useState(false);
+const [contador, setContador] = useState(false );
+
+let mensaje1 ="Chainsaw Man";
+let mensaje2 = "the god of high school";
 
 
-export  function Pagina() {
-const mensaje = "Dante";
-const [contador, setContador] = useState(0);
-const actulizar =() => {
-setContador(contador + 1);
-if(contador === 5){
-  alert(mensaje);
-}else if(contador === 10){
-alert(mensaje = "Vergirl");
+const elige = (valor) => {
+  setContador(valor);
+  alert(valor ? mensaje1 : mensaje2);
+};
+
+const Cambios = ()=> {
+  setEstado(!estado);
+} 
+return (
+<div >
+
+<h1>Anime</h1>
+<p> que anime Pertenece</p>
+{estado && (
+  <div>
+  <button className="btn"onClick={() => elige(true)}> Reze </button><br/><br/>
+  <button className="btn1"onClick={() => elige(false)}> Mori Jin </button><br/><br/>
+  </div>
+)}
+
+
+<button onClick={Cambios} >{estado ? "True" : "False"}</button>
+</div>
+  );
 }
-}
-  return (
-
-    <div>
-      <h1>{contador}</h1>
-      <button onClick={actulizar}>click</button>
-    </div>
-  )
-
-}
-
-export function context () {
-  const valor = useContext(context);
-  return(
-    <div>
-      <h1>{valor}</h1>
-    </div>
-  )
-}
-
-
-
-
