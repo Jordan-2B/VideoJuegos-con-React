@@ -1,0 +1,57 @@
+[
+  {
+    "title": "Nier Automata",
+    "description": "VideoJuego",
+    "priority": "medium",
+    "dueDate": "2026-04-30",
+    "startTime": "2026-04-22T12:47",
+    "id": "1776879902640",
+    "createdAt": "2026-04-22T17:45:02.640Z",
+    "status": "todo"
+  },
+  {
+    "title": "devil may cry 5",
+    "description": "comprar",
+    "priority": "high",
+    "dueDate": "2026-04-25",
+    "id": "1776884413130",
+    "createdAt": "2026-04-22T19:00:13.130Z",
+    "status": "todo"
+  },
+  {
+    "title": "hollow knight",
+    "description": "comprar",
+    "priority": "low",
+    "dueDate": "2026-04-29",
+    "id": "1776884461315",
+    "createdAt": "2026-04-22T19:01:01.315Z",
+    "status": "todo"
+  },
+  {
+    "title": "hollow knight silksong",
+    "description": "comprar",
+    "priority": "high",
+    "dueDate": "2026-04-29",
+    "id": "1776884487648",
+    "createdAt": "2026-04-22T19:01:27.648Z",
+    "status": "todo"
+  },
+  {
+    "title": "nier replicant",
+    "description": "comprar",
+    "priority": "high",
+    "dueDate": "2026-04-27",
+    "id": "1776884528549",
+    "createdAt": "2026-04-22T19:02:08.549Z",
+    "status": "todo"
+  },
+  {
+    "title": "nier reincarnation",
+    "description": "comprar",
+    "priority": "high",
+    "dueDate": "2026-04-27",
+    "id": "1776884545918",
+    "createdAt": "2026-04-22T19:02:25.918Z",
+    "status": "todo"
+  }
+]
