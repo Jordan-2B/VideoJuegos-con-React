@@ -1,0 +1,123 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Fondo */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #0f172a;
+  color: #e2e8f0;
+}
+
+/* Contenedor principal */
+.app-container {
+  width: 100%;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Formularios */
+form {
+  background: #1e293b;
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* Inputs */
+input,
+select {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  background: #334155;
+  color: white;
+  flex: 1 1 200px;
+}
+
+/* Focus */
+input:focus,
+select:focus {
+  outline: 2px solid #38bdf8;
+}
+
+/* Botones */
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background: #38bdf8;
+  color: #0f172a;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #0ea5e9;
+}
+
+button:disabled {
+  background: #64748b;
+  cursor: not-allowed;
+}
+
+/* GRID RESPONSIVE */
+.tareas-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+}
+
+/* TARJETAS */
+.tarea-card {
+  background: #1e293b;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  transition: transform 0.2s;
+}
+
+.tarea-card:hover {
+  transform: scale(1.03);
+}
+
+/* Texto */
+h3 {
+  color: #38bdf8;
+}
+
+p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+/* Mensajes */
+.error {
+  background: #7f1d1d;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.saved {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  form {
+    flex-direction: column;
+  }
+
+  button {
+    width: 100%;
+  }
+}

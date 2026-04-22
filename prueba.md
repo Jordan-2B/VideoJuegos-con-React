@@ -69,13 +69,13 @@ interface Filters {
 ```
 
 **Estados obligatorios (mínimo):**
-- `tasks`
-- `formData`
+-  `tasks` 
+- `formData` 
 - `filters`
 - `history: Task[][]` (máximo 5 snapshots)
 - `redoStack: Task[][]`
-- `now: Date`
-- `isLoading`
+-  `now: Date` 
+- `isLoading` 
 - `error: string | null`
 - `isSaving`
 - `lastSaved: Date | null`
