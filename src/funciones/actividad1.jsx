@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, use } from 'react';
 import './style.css';
 
 export default function Actividad() {
@@ -75,6 +75,16 @@ const simulatorError = () => {
     }, 300);
     return () => clearTimeout(timer); 
   }, [filters.searchTerm]);
+
+
+  useEffect = (()=>{
+
+if(formData.title.length > 5 && formData.description.length > 20){
+  console.log("Formulario válido");
+}else if(formData.title.length < 5 && formData.description.length < 20){
+  console.log("Formulario inválido");
+}
+  },[]);
 
   const saveSnapshot = () => {
     setHistory(prev => {
@@ -200,18 +210,21 @@ const tareasFiltradas = tareas
       {verdadero && (
         <form onSubmit={handleSubmit}>
           <input
+          required
             type="text"
             placeholder="Agregue Nombre"
             onChange={(e) => setFormData({ ...formData, title: e.target.value })}
           />
 
           <input
+          required
             type="text"
             placeholder="Agregue descripción"
             onChange={(e) => setFormData({ ...formData, description: e.target.value })}
           />
 
           <select
+            required
             onChange={(e) => setFormData({ ...formData, priority: e.target.value })}
           >
             <option value="low">Bajo</option>
@@ -221,6 +234,7 @@ const tareasFiltradas = tareas
 
           <input
             type="date"
+            required
             onChange={(e) => setFormData({ ...formData, dueDate: e.target.value })}
           />
 
