@@ -1,66 +1,65 @@
 [
   {
-    "title": "Nier Automata",
-    "description": "VideoJuego",
-    "priority": "medium",
+    "title": "Nier automara",
+    "description": "Juego",
+    "priority": "high",
     "dueDate": "2026-04-30",
-    "startTime": "2026-04-22T12:47",
-    "id": "1776879902640",
-    "createdAt": "2026-04-22T17:45:02.640Z",
+    "id": "1776975968461",
+    "createdAt": "2026-04-23",
+    "status": "in-progress"
+  },
+  {
+    "title": "nier replicant",
+    "description": "Juego",
+    "priority": "medium",
+    "dueDate": "2026-04-28",
+    "id": "1776976002384",
+    "createdAt": "2026-04-23",
+    "status": "in-progress"
+  },
+  {
+    "title": "nier reincarnation",
+    "description": "Juego",
+    "priority": "medium",
+    "dueDate": "2026-04-26",
+    "id": "1776976022514",
+    "createdAt": "2026-04-23",
+    "status": "in-progress"
+  },
+  {
+    "title": "hollow knight",
+    "description": "Juego",
+    "priority": "low",
+    "dueDate": "2026-04-24",
+    "id": "1776976042830",
+    "createdAt": "2026-04-20",
+    "status": "in-progress"
+  },
+  {
+    "title": "hollow knight silksong",
+    "description": "VideoJuego",
+    "priority": "high",
+    "dueDate": "2026-04-28",
+    "id": "1776976092486",
+    "createdAt": "2026-04-21",
+    "status": "in-progress"
+  },
+  {
+    "title": "devil may cry 3",
+    "description": "VideoJuego",
+    "priority": "high",
+    "dueDate": "2026-04-28",
+    "id": "1776976142050",
+    "createdAt": "2026-04-22",
     "status": "todo"
   },
   {
     "title": "devil may cry 5",
-    "description": "comprar",
+    "description": "VideoJuego",
     "priority": "high",
-    "dueDate": "2026-04-25",
-    "id": "1776884413130",
-    "createdAt": "2026-04-22T19:00:13.130Z",
+    "dueDate": "2026-04-28",
+    "id": "1776976150202",
+    "createdAt": "2026-04-23",
     "status": "todo"
-  },
-  {
-    "title": "hollow knight",
-    "description": "comprar",
-    "priority": "low",
-    "dueDate": "2026-04-29",
-    "id": "1776884461315",
-    "createdAt": "2026-04-22T19:01:01.315Z",
-    "status": "todo"
-  },
-  {
-    "title": "hollow knight silksong",
-    "description": "comprar",
-    "priority": "high",
-    "dueDate": "2026-04-29",
-    "id": "1776884487648",
-    "createdAt": "2026-04-22T19:01:27.648Z",
-    "status": "todo"
-  },
-  {
-    "title": "nier replicant",
-    "description": "comprar",
-    "priority": "high",
-    "dueDate": "2026-04-27",
-    "id": "1776884528549",
-    "createdAt": "2026-04-22T19:02:08.549Z",
-    "status": "todo"
-  },
-  {
-    "title": "nier reincarnation",
-    "description": "comprar",
-    "priority": "high",
-    "dueDate": "2026-04-27",
-    "id": "1776884545918",
-    "createdAt": "2026-04-22T19:02:25.918Z",
-    "status": "todo"
-  },
-  {
-    "title": "Este es para mañana",
-    "description": "abril de 22 a las 14:42",
-    "priority": "low",
-    "dueDate": "2026-04-23",
-    "id": "1776886960372",
-    "createdAt": "2026-04-22T19:42:40.372Z",
-    "status": "in-progress"
   }
 ]
