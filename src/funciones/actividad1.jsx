@@ -11,6 +11,9 @@ export default function Actividad() {
   const [isSaving, setIsSaving] = useState(false);
   const [lastSaved, setLastSaved] = useState(null);
   const [now, setNow] = useState(new Date());
+  const [simulatedError, setSimulatedError] = useState(false);
+  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState("");
+  const [ordering, setOrdering] = useState("dueDate");
 
 useEffect(() => {
   const interval = setInterval(() => setNow(new Date()), 1000);
@@ -23,8 +26,6 @@ useEffect(() => {
     searchTerm: ""
   });
 
-  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState("");
-
   const [formData, setFormData] = useState({
     title: "",
     description: "",
@@ -32,9 +33,11 @@ useEffect(() => {
     dueDate: ""
   });
 
+  
 
-  useEffect(() => {
-    setIsLoading(true);
+const cargarTareas = () => {
+  setIsLoading(true);
+  setTimeout(() => {
     fetch("http://localhost:4000/tareas")
       .then(res => res.json())
       .then(data => {
@@ -45,21 +48,38 @@ useEffect(() => {
         setError("Error al cargar tareas");
         setIsLoading(false);
       });
-  }, []);
+  }, 800);
+};
 
+
+useEffect(() => {
+  cargarTareas();
+}, []);
+
+
+
+const reiniciar = () => {
+  setSimulatedError(false);
+  setError(null);
+  cargarTareas();       
+};
+
+const simulatorError = () => {
+  setError("Error simulado");
+  setSimulatedError(true);
+};
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setDebouncedSearchTerm(filters.searchTerm);
-    }, 3000);
+    }, 300);
     return () => clearTimeout(timer); 
   }, [filters.searchTerm]);
-
 
   const saveSnapshot = () => {
     setHistory(prev => {
       const nuevaHistory = [...prev, tareas];
-      return nuevaHistory.slice(-5); // máximo 5 snapshots
+      return nuevaHistory.slice(-5); 
     });
     setRedoStack([]);
   };
@@ -80,9 +100,6 @@ useEffect(() => {
     setRedoStack(prev => prev.slice(0, -1));
   };
 
-  
-
-  // --- Crear tarea ---
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -96,7 +113,7 @@ useEffect(() => {
     const nuevaTarea = {
       ...formData,
       id: Date.now().toString(),
-      createdAt: new Date().toISOString(),
+      createdAt: new Date().toISOString().slice(0, 10),
       status: "in-progress"
     };
 
@@ -119,12 +136,32 @@ useEffect(() => {
       });
   };
 
-  // Filtrado usando debouncedSearchTerm
-const tareasFiltradas = tareas.filter(t => {
-const coincideNombre = t.title.toLowerCase().includes(debouncedSearchTerm.toLowerCase());
-const coincideStatus = filters.status === "all" || t.status === filters.status;
-const coincidePriority = filters.priority === "all" || t.priority === filters.priority;
-return coincideNombre && coincideStatus && coincidePriority;
+const priorityValue = (p) => {
+  if (p === "high")   return 3;
+  if (p === "medium") return 2;
+  return 1;
+};
+
+const tareasFiltradas = tareas
+  .filter(t => {
+    const coincideNombre = t.title.toLowerCase().includes(debouncedSearchTerm.toLowerCase());
+    const coincideStatus = filters.status === "all" || t.status === filters.status;
+    const coincidePriority = filters.priority === "all" || t.priority === filters.priority;
+    return coincideNombre && coincideStatus && coincidePriority;
+  })
+  .sort((a, b) => {
+    if (ordering === "dueDate") {
+      return new Date(a.dueDate) - new Date(b.dueDate);
+    }
+    if (ordering === "priority") {
+      const diff = priorityValue(b.priority) - priorityValue(a.priority);
+      if (diff !== 0) return diff;
+      return new Date(a.dueDate) - new Date(b.dueDate); // tiebreaker
+    }
+    if (ordering === "createdAt") {
+      return new Date(b.createdAt) - new Date(a.createdAt);
+    }
+    return 0;
   });
 
   return (
@@ -159,7 +196,7 @@ return coincideNombre && coincideStatus && coincidePriority;
         </select>
       </form>
 
-      {/* Formulario de creación */}
+
       {verdadero && (
         <form onSubmit={handleSubmit}>
           <input
@@ -199,13 +236,30 @@ return coincideNombre && coincideStatus && coincidePriority;
 
       <button onClick={handleUndo} disabled={history.length === 0}>Deshacer</button>
       <button onClick={handleRedo} disabled={redoStack.length === 0}>Rehacer</button>
+    <button onClick={simulatorError}>Simular Error de Red</button>
 
-      {isLoading && <p>Cargando tareas...</p>}
-      {error && <p style={{ color: "red" }}>{error}</p>}
+{error && (
+  <div>
+    <p style={{ color: "red" }}>{error}</p>
+    <button onClick={reiniciar}>Reintentar</button>
+  </div>
+)}
+
+<select
+  value={ordering}
+  onChange={(e) => setOrdering (e.target.value)}
+>
+  <option value="dueDate">Fecha límite (próximas primero)</option>
+  <option value="priority">Prioridad (alta primero)</option>
+  <option value="createdAt">Más recientes primero</option>
+</select>
+
+      {isLoading && (<div style={{ display: "flex", justifyContent: "center", alignItems: "center", width: "100%", padding: "20px" }}>
+      <div style={{ width: "40px", height: "40px", border: "4px solid #ccc", borderTop: "4px solid #333", borderRadius: "50%", animation: "spin 1s linear infinite"}}/> </div>)}
       {lastSaved && <p>Último guardado: {lastSaved.toLocaleTimeString()}</p>}
 
       <div className="tareas-container">
-  {tareasFiltradas.map((t) => (
+  {!error && tareasFiltradas.map((t) => (
     <div key={t.id} className="tarea-card">
       <h3>{t.title}</h3>
       <p>{t.description}</p>
@@ -213,6 +267,7 @@ return coincideNombre && coincideStatus && coincidePriority;
       <p>Prioridad: {t.priority}</p>
       <p>Fecha límite: {t.dueDate}</p>
       <p>Creado: {t.createdAt}</p>
+      <button>Editar</button>
     </div>
   ))}
 </div>
